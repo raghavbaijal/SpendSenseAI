@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+/* ========================= */
+/* Theme Tokens (Google Stitch) */
+/* ========================= */
+
+@theme {
+
+  /* Colors */
+
+  --color-on-tertiary-container: #fdf6ff;
+  --color-on-surface-variant: #c2c6d8;
+  --color-on-primary-fixed-variant: #004299;
+  --color-primary: #afc6ff;
+  --color-inverse-primary: #0059c7;
+  --color-on-primary: #002d6d;
+  --color-on-primary-container: #f8f7ff;
+  --color-on-tertiary: #3c0091;
+  --color-on-error-container: #ffdad6;
+  --color-on-secondary-fixed-variant: #005236;
+  --color-surface-container: #1e2023;
+  --color-on-tertiary-fixed: #23005c;
+  --color-surface-tint: #afc6ff;
+  --color-outline: #8c90a1;
+  --color-error-container: #93000a;
+  --color-secondary-container: #00a572;
+  --color-background: #111316;
+  --color-surface-container-low: #1a1c1f;
+  --color-secondary-fixed: #6ffbbe;
+  --color-primary-fixed: #d9e2ff;
+  --color-on-surface: #e2e2e6;
+  --color-primary-fixed-dim: #afc6ff;
+  --color-error: #ffb4ab;
+  --color-on-secondary-container: #00311f;
+  --color-surface-bright: #37393d;
+  --color-tertiary-fixed-dim: #d0bcff;
+  --color-surface-variant: #333538;
+  --color-secondary: #4edea3;
+  --color-surface: #111316;
+  --color-secondary-fixed-dim: #4edea3;
+  --color-tertiary-fixed: #e9ddff;
+  --color-on-error: #690005;
+  --color-surface-container-highest: #333538;
+  --color-on-secondary-fixed: #002113;
+  --color-on-background: #e2e2e6;
+  --color-surface-dim: #111316;
+  --color-inverse-surface: #e2e2e6;
+  --color-surface-container-high: #282a2d;
+  --color-primary-container: #046bed;
+  --color-on-primary-fixed: #001944;
+  --color-outline-variant: #424656;
+  --color-on-secondary: #003824;
+  --color-on-tertiary-fixed-variant: #5516be;
+  --color-tertiary-container: #8252ec;
+  --color-inverse-on-surface: #2f3034;
+  --color-tertiary: #d0bcff;
+  --color-surface-container-lowest: #0c0e11;
+
+  /* Fonts */
+
+  --font-headline: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+
+  /* Radius */
+
+  --radius-default: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+
+  /* Shadows */
+
+  --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 15px -3px rgba(175, 198, 255, 0.2);
+}
+
+
+/* ========================= */
+/* Base Styles */
+/* ========================= */
+
+@layer base {
+
+  body {
+    @apply bg-background text-on-surface font-body selection:bg-primary/30 overflow-hidden h-screen;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+}
+
+
+/* ========================= */
+/* Google Icons */
+/* ========================= */
+
+.material-symbols-outlined {
+  font-variation-settings: 
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  display: inline-block;
+  line-height: 1;
+}
+
+
+/* ========================= */
+/* Hover Cards */
+/* ========================= */
+
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4);
+  background-color: var(--color-surface-container-high);
+}
+
+
+/* ========================= */
+/* Custom Scrollbar (Global Premium) */
+/* ========================= */
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(175, 198, 255, 0.15); /* bg-primary/15 */
+  border-radius: 10px;
+  border: 1px solid rgba(175, 198, 255, 0.1);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(175, 198, 255, 0.4); /* bg-primary/40 */
+}
+
+
+/* ========================= */
+/* Utility Classes */
+/* ========================= */
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+
+/* ========================= */
+/* Utility Classes */
+/* ========================= */
+
+.shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+
+.shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+.font-headline {
+  font-family: var(--font-headline);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-label {
+  font-family: var(--font-label);
+}
