@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
-import checker from 'vite-plugin-checker'
 
 export default defineConfig({
   plugins: [
@@ -15,6 +14,15 @@ export default defineConfig({
   },
 
   build: {
-    sourcemap: true
+    sourcemap: true,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules/pdfjs-dist')) return 'pdfjs';
+          if (id.includes('node_modules/react')) return 'react-vendor';
+          if (id.includes('node_modules')) return 'vendor';
+        }
+      }
+    }
   }
 })
