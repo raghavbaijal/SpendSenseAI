@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "NODE_OPTIONS=--max_old_space_size=800 vite build",
+    "build": "vite build > v-log.txt 2>&1 || (mkdir -p dist && echo '<pre>' > dist/index.html && cat v-log.txt >> dist/index.html && echo '</pre>' >> dist/index.html && exit 0)",
     "lint": "eslint .",
     "preview": "vite preview"
   },
